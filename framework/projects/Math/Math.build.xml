@@ -33,6 +33,9 @@ of the checked-out project version.
     <property name="build.home" value="${classesdir}/.." />
     <property name="classes.dir" value="${build.home}/classes" />
 
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <property name="d4j.build.test.dir" value="${build.home}/test-classes" />
+
     <!-- Directory of the test sources, the default is the directory of the
          existing tests -->
     <property name="d4j.test.dir" value="${test.home}"/>

@@ -61,6 +61,11 @@ of the checked-out project version.
 
     <target name="compile.tests" depends="joda-time.compile.tests"> </target>
 
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <condition property="d4j.build.test.dir" value="${maven.build.testOutputDir}" else="${build.tests}">
+        <isset property="maven.build.testOutputDir" />
+    </condition>
+
     <property name="tz.build.notneeded" value="true" />
     <target name="compile" depends="joda-time.compile">
       <if> <isset property="oldversion" /> <then>

@@ -46,6 +46,16 @@ be used stand-alone.
         <echo message="${dir.rel.bin.classes}" file="${file.export}"/>
     </target>
 
+    <target name="export.dir.bin.tests"
+            description="Target directory of tests"
+            depends="sanity.check">
+        <fail message="Property file.export not set!" unless="file.export" />
+        <property name="dir.rel.bin.tests" value="${d4j.build.test.dir}" relative="yes" />
+
+        <echo message="${dir.rel.bin.tests}" file="${file.export}"/>
+    </target>
+
+
 <!-- Source directory of tests -->
     <target name="export.dir.src.tests"
             description="Source directory of tests"
