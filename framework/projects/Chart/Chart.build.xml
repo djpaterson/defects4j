@@ -35,6 +35,9 @@ of the checked-out project version.
     <property name="classes.dir" value="${d4j.workdir}/build" />
     <path id="compile.classpath" refid="build.classpath" />
 
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <property name="d4j.build.test.dir" value="${test.home}" />
+    
     <!-- Clean up working directory, i.e., delete classes and test classes. -->
     <target name="clean">
         <delete dir="$test.home" />

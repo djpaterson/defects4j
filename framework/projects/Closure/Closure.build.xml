@@ -51,6 +51,9 @@ of the checked-out project version.
     <property name="test.home" value="${testClasses.dir}" />
     <property name="build.home" value="${build.dir}" />
 
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <property name="d4j.build.test.dir" value="${test.home}" />
+
     <target name="compile.tests" depends="compile-tests" />
 
     <!-- We need to compile rhino.testing package before we can
