@@ -60,6 +60,11 @@ of the checked-out project version.
     <property name="build.home" value="${classes.dir}/.." />
 
     <target name="compile.tests" depends="joda-time.compile.tests"> </target>
+    
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <condition property="d4j.build.test.dir" value="${maven.build.testOutputDir}" else="${build.tests}">
+        <isset property="maven.build.testOutputDir" />
+    </condition>
 
     <!-- Property to uniquely identify test build dir for all projects -->
     <condition property="d4j.build.test.dir" value="${maven.build.testOutputDir}" else="${build.tests}">
