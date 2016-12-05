@@ -48,7 +48,9 @@ of the checked-out project version.
     <property name="classes.dir" value="${build.home}/classes"/>
 
     <!-- Property to uniquely identify test build dir for all projects -->
-    <property name="d4j.build.test.dir" value="${build.home}/tests" />
+    <condition property="d4j.build.test.dir" value="${build.home}/tests" else="${build.home}/test-classes">
+        <available file="${build.home}/tests" type="dir" />
+    </condition>
     
     <!-- List of all developer-written tests that reliably pass on the fixed version -->
     <fileset id="all.manual.tests" dir="${test.home}" excludes="${d4j.tests.exclude}">
