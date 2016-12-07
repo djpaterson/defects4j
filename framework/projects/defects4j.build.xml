@@ -128,7 +128,7 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
     Test has to be provided as property "test.entry" (class::method)
     and the output is redirected to "test.output"
 -->
-    <target name="monitor.test" depends="compile" description="Run a single test class or method and monitor class loader">
+    <target name="monitor.test" description="Run a single test class or method and monitor class loader">
         <fail message="Property test.entry not set!" unless="test.entry" />
         <fail message="Property test.output not set!" unless="test.output" />
 
@@ -200,11 +200,6 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
 
         <fail message="Property major.exclude not set!" unless="major.exclude" />
         <fail message="Property major.kill.log not set!" unless="major.kill.log" />
-        <fail message="Property major.resultFile not set!" unless="major.resultFile" />
-        <fail message="Property major.exportCovMap not set!" unless="major.exportCovMap" />
-        <fail message="Property major.covMapFile not set!" unless="major.covMapFile" />
-        <fail message="Property major.exportKillMap not set!" unless="major.exportKillMap" />
-        <fail message="Property major.killMapFile not set!" unless="major.killMapFile" />
 
         <!-- Sort test classes by run time, unless a single test method is run -->
         <condition property="major.sort" value="original" else="sort_classes">
@@ -219,17 +214,10 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
 
             mutationAnalysis="true"
             timeoutFactor="16"
-            coverage="true"
-            sort="sort_methods"
-            haltonfailure="false"
+            sort="${major.sort}"
+            haltonfailure="true"
             killDetailsFile="${major.kill.log}"
             excludeFile="${major.exclude}"
-
-            resultFile="${major.resultFile}"
-            exportCovMap="${major.exportCovMap}"
-            covMapFile="${major.covMapFile}"
-            exportKillMap="${major.exportKillMap}"
-            killMapFile="${major.killMapFile}"
             >
 
             <!--
@@ -300,7 +288,6 @@ project-specific build file ("project_id"/"project_id".build.xml) for the
                 <pathelement path="${build.home}/gen-tests" />
                 <pathelement path="${formatter.jar}" />
                 <pathelement path="${classes.dir}" />
-                <pathelement path="${junit.jar}" />
                 <path refid="d4j.test.classpath"/>
                 <!-- Add dependencies to code coverage tools -->
                 <pathelement path="${cobertura.jar}" />
