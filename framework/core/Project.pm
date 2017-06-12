@@ -418,7 +418,7 @@ sub apply_patches {
     {
         my $patch_dir = "$SCRIPT_DIR/projects/$pid/patches";
         my $src_patch = "$patch_dir/${p}.src.patch";
-        $self->apply_patch($work_dir, $src_patch) or confess("Could not apply patch $p to project");
+        $self->apply_patch($work_dir, $src_patch) or return 0;
     }
     $self->tag(Utils::tag_prefix($pid, $bid) . $TAG_POST_PATCH,
         "Creating tag after patching",
