@@ -1,7 +1,7 @@
 #!/usr/bin/env perl
 #
 #-------------------------------------------------------------------------------
-# Copyright (c) 2014-2015 René Just, Darioush Jalali, and Defects4J contributors.
+# Copyright (c) 2014-2018 René Just, Darioush Jalali, and Defects4J contributors.
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -176,7 +176,7 @@ $LOG->log_time("Start test generation");
 
 # Build class list arguments
 my $test_classes="--classlist=$LOADED_CLASSES";
-my $target_classes="--include-if-class-exercised=$MOD_CLASSES";
+my $target_classes="--require-covered-classes=$MOD_CLASSES";
 
 # Iterate over all modified classes
 my $log = "$TMP_DIR/$PID.$VID.$TID.log";
