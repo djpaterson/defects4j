@@ -32,6 +32,9 @@
     </condition>
     <property name="test.classes.dir" value="${test.home}" />
 
+    <!-- Property to uniquely identify test build dir for all projects -->
+    <property name="d4j.build.test.dir" value="${test.home}" />
+
     <condition property="build.home" value="${basedir}/target" else="${basedir}/build">
         <istrue value="${use.ant}"/>
     </condition>
