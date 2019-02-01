@@ -32,6 +32,7 @@ of the checked-out project version.
     <!-- build.home is not set in old repository layout -->
     <property name="build.home" value="${classesdir}/.." />
     <property name="classes.dir" value="${build.home}/classes" />
+    <property name="test.classes.dir" value="${build.home}/test-classes" />
 
     <!-- Property to uniquely identify test build dir for all projects -->
     <property name="d4j.build.test.dir" value="${build.home}/test-classes" />

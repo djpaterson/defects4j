@@ -46,6 +46,9 @@ of the checked-out project version.
          existing tests -->
     <property name="d4j.test.dir" value="${test.home}"/>
     <property name="classes.dir" value="${build.home}/classes"/>
+    <condition property="test.classes.dir" value="${maven.build.testOutputDir}" else="${build.home}/tests">
+        <isset property="maven.build.testOutputDir" />
+    </condition>
 
     <!-- Property to uniquely identify test build dir for all projects -->
     <condition property="d4j.build.test.dir" value="${build.home}/tests" else="${build.home}/test-classes">
